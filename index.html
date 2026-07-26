@@ -3,53 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reach Out | Digital Card</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Contact | The Site Craft Studio</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 <body>
-    <!-- Animated background shapes for the glass effect to reflect -->
-    <div class="background-animation">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
-    </div>
 
-    <!-- Main Glassmorphism Card -->
-    <main class="glass-card">
-        <!-- Floating Mascot Profile -->
-        <div class="mascot-container">
-            <svg viewBox="0 0 100 100" class="mascot" xmlns="http://www.w3.org/2000/svg">
-                <!-- Mascot Face -->
-                <circle cx="50" cy="60" r="18" fill="#fcd0b4"/> 
-                <!-- Beard -->
-                <path d="M 32 60 C 32 85, 68 85, 68 60 C 60 75, 40 75, 32 60" fill="#2d3748"/>
-                <!-- Eyes -->
-                <circle cx="43" cy="56" r="2.5" fill="#1a202c"/>
-                <circle cx="57" cy="56" r="2.5" fill="#1a202c"/>
-                <!-- Smile -->
-                <path d="M 45 65 Q 50 69 55 65" stroke="#1a202c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <!-- Turban (Dumalla/Patiala style wrap) -->
-                <path d="M 22 42 C 22 15, 78 15, 78 42 C 84 48, 75 58, 65 52 C 55 62, 45 62, 35 52 C 25 58, 16 48, 22 42 Z" fill="#6366f1"/>
-                <path d="M 28 35 Q 50 48 72 35" stroke="#4f46e5" stroke-width="3" fill="none" stroke-linecap="round"/>
-                <path d="M 35 25 Q 50 38 65 25" stroke="#4f46e5" stroke-width="2" fill="none" stroke-linecap="round"/>
-            </svg>
-        </div>
-        
-        <!-- Details & Actions -->
-        <div class="content">
-            <h1 class="name">The Site Craft Studio</h1>
-            <p class="title">Custom Development and Consultancy</p>
-            
-            <div class="actions">
-                <!-- Replace 'contact.vcf' with the actual name of your vCard file -->
-                <a href="./the-site-craft-studio.vcf" class="btn primary-btn">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Save Contact
-                </a>
-                <a href="mailto:bawabalwant045@gmail.com" class="btn glass-btn">Send an Email</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn glass-btn">Connect on LinkedIn</a>
+    <div class="container">
+        <div class="brand-panel">
+            <div class="logo-wrapper">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <h1>Let's craft<br>your digital<br>future.</h1>
+                <p>You have our card. Now, let us build your vision with precision web solutions and bespoke design.</p>
             </div>
         </div>
-    </main>
+
+        <div class="form-panel">
+            <form id="contactForm">
+                <h2>Start a Project</h2>
+                <p>Fill out the details below and our studio will reach out within 24 hours.</p>
+
+                <!-- WEB3FORMS ACCESS KEY (See instructions below) -->
+                <input type="hidden" name="access_key" value="4c774272-35d9-4c42-a26b-88f2509d0819">
+
+                <div class="input-group">
+                    <input type="text" name="name" id="name" required>
+                    <label for="name">Full Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="input-group" style="margin-bottom: 3rem;">
+                    <select name="service" id="service" style="color: #999;" onchange="this.style.color='var(--text-dark)'" required>
+                        <option value="" disabled selected>Select a Service</option>
+                        <option value="Web Development">Custom Web Development</option>
+                        <option value="App & Software">Bespoke App & Software</option>
+                        <option value="Digital Marketing">Digital Marketing (SEO/PPC)</option>
+                        <option value="UI/UX Design">UX/UI & Brand Identity</option>
+                        <option value="not listed">Others</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <textarea name="message" id="message" required></textarea>
+                    <label for="message">Project Details</label>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="submit-btn" id="submitBtn">Send Inquiry</button>
+                    <button type="button" class="urgent-btn" id="urgentBtn">Need it Urgent?</button>
+                </div>
+
+                <!-- Urgent Contact Details Reveal -->
+                <div class="urgent-details" id="urgentDetails">
+                    <p><strong>Call / WhatsApp:</strong> <a href="tel:+916239909804">+91 6239909804</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@thesitecraftstudio.com">thesitecraftstudio@gmail.com</a></p>
+                    <div class="social-links">
+                        <a href="#" target="_blank">LinkedIn</a>
+                        <a href="#" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h3>Inquiry Received.</h3>
+                <p>Thank you for reaching out to The Site Craft Studio. We will be in touch shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. GSAP ENTRANCE ANIMATION ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const tl = gsap.timeline();
+            tl.to(".container", { opacity: 1, duration: 0.5, ease: "power2.out" })
+              .from(".logo-wrapper", { y: -20, opacity: 0, duration: 0.6, ease: "power3.out" })
+              .from(".brand-text h1, .brand-text p", { y: 20, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" }, "-=0.4")
+              .from(".form-panel h2, .form-panel > p, .input-group, .button-group", { x: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" }, "-=0.6");
+        });
+
+        // --- 2. URGENT BUTTON REVEAL (GSAP) ---
+        const urgentBtn = document.getElementById('urgentBtn');
+        const urgentDetails = document.getElementById('urgentDetails');
+        let isUrgentOpen = false;
+
+        urgentBtn.addEventListener('click', () => {
+            if (!isUrgentOpen) {
+                gsap.to(urgentDetails, { height: "auto", opacity: 1, duration: 0.4, ease: "power2.out" });
+                urgentBtn.innerText = "Close Details";
+            } else {
+                gsap.to(urgentDetails, { height: 0, opacity: 0, duration: 0.3, ease: "power2.in" });
+                urgentBtn.innerText = "Need it Urgent?";
+            }
+            isUrgentOpen = !isUrgentOpen;
+        });
+
+        // --- 3. FORM SUBMISSION (SENDING THE EMAIL) ---
+        const form = document.getElementById('contactForm');
+        const successMsg = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            // Change button text while sending
+            submitBtn.innerText = "Sending...";
+            
+            const formData = new FormData(form);
+
+            // Send data to Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    // Success! Animate form out and show success message
+                    gsap.to(form, {
+                        opacity: 0, y: -20, duration: 0.4,
+                        onComplete: () => {
+                            form.style.display = 'none';
+                            successMsg.style.display = 'block';
+                            gsap.fromTo(successMsg, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
+                        }
+                    });
+                } else {
+                    alert("Something went wrong. Please try emailing us directly.");
+                    submitBtn.innerText = "Send Inquiry";
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Network error. Please try again.");
+                submitBtn.innerText = "Send Inquiry";
+            });
+        });
+    </script>
 </body>
 </html>
