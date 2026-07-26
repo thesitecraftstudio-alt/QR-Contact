@@ -1,174 +1,158 @@
-/* Import modern font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #0f172a; /* Dark sleek background */
-    overflow: hidden;
-    position: relative;
-}
+        :root {
+            --bg-cream: #F4F0EA;
+            --brand-maroon: #722227;
+            --text-dark: #404040;
+            --border-light: #D1C8B8;
+        }
 
-/* --- Animated Background Shapes --- */
-.background-animation {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-.shape {
-    position: absolute;
-    filter: blur(80px);
-    border-radius: 50%;
-    animation: float 10s infinite alternate ease-in-out;
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 2rem;
+        }
 
-.shape1 {
-    width: 300px;
-    height: 300px;
-    background: #4f46e5; /* Indigo */
-    top: -5%;
-    left: 15%;
-}
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 80vh;
+            background: #ffffff;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border-radius: 4px; 
+            overflow: hidden;
+            opacity: 0; 
+        }
 
-.shape2 {
-    width: 400px;
-    height: 400px;
-    background: #db2777; /* Pink */
-    bottom: -10%;
-    right: 5%;
-    animation-delay: -3s;
-}
+        /* --- LEFT PANEL --- */
+        .brand-panel {
+            flex: 1;
+            background-color: var(--brand-maroon);
+            color: var(--bg-cream);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.shape3 {
-    width: 250px;
-    height: 250px;
-    background: #06b6d4; /* Cyan */
-    top: 40%;
-    left: 50%;
-    animation-delay: -6s;
-}
+        .logo-wrapper svg { width: 60px; height: 60px; fill: var(--bg-cream); }
 
-@keyframes float {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(-40px) scale(1.1); }
-}
+        .brand-panel h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
 
-/* --- Glassmorphism Card --- */
-.glass-card {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 380px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
-    animation: fadeUp 1s ease-out forwards;
-}
+        .brand-panel p {
+            font-size: 1rem; line-height: 1.6; opacity: 0.9; font-weight: 300; max-width: 80%;
+        }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        /* --- RIGHT PANEL --- */
+        .form-panel {
+            flex: 1;
+            padding: 4rem;
+            background-color: var(--bg-cream);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-/* --- Mascot Animation --- */
-.mascot-container {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto 25px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
-    animation: bounceFloat 4s infinite ease-in-out;
-}
+        .form-panel h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--brand-maroon);
+            margin-bottom: 0.5rem;
+        }
 
-.mascot {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-}
+        .form-panel > p { font-size: 0.9rem; margin-bottom: 2.5rem; color: #666; }
 
-@keyframes bounceFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-}
+        .input-group { position: relative; margin-bottom: 2rem; }
 
-/* --- Typography --- */
-.name {
-    color: #ffffff;
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    letter-spacing: 0.5px;
-}
+        .input-group input, .input-group select, .input-group textarea {
+            width: 100%; padding: 10px 0; font-size: 1rem; font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark); border: none; border-bottom: 1px solid var(--border-light);
+            background: transparent; outline: none; transition: border-color 0.3s ease;
+        }
 
-.title {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    margin-bottom: 35px;
-    font-weight: 300;
-}
+        .input-group textarea { resize: none; height: 80px; }
 
-/* --- Buttons --- */
-.actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        .input-group label {
+            position: absolute; top: 10px; left: 0; font-size: 1rem; color: #999;
+            pointer-events: none; transition: 0.3s ease all;
+        }
 
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    text-decoration: none;
-    padding: 14px 20px;
-    border-radius: 14px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
+        .input-group input:focus, .input-group textarea:focus { border-bottom: 2px solid var(--brand-maroon); }
 
-/* The Glass Effect Button */
-.glass-btn {
-    background: rgba(255, 255, 255, 0.05);
-    color: #e2e8f0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .input-group input:focus ~ label, .input-group input:valid ~ label,
+        .input-group textarea:focus ~ label, .input-group textarea:valid ~ label {
+            top: -15px; font-size: 0.75rem; color: var(--brand-maroon); font-weight: 600;
+        }
 
-.glass-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+        /* --- BUTTONS --- */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
 
-/* The Main Gradient Action Button */
-.primary-btn {
-    background: linear-gradient(135deg, #4f46e5, #db2777);
-    color: #ffffff;
-    border: none;
-    box-shadow: 0 10px 20px rgba(219, 39, 119, 0.25);
-}
+        button.submit-btn {
+            background-color: var(--brand-maroon);
+            color: var(--bg-cream);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500; font-size: 1rem; padding: 1rem 2rem; border: none;
+            cursor: pointer; flex: 2; transition: background-color 0.3s ease;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
 
-.primary-btn:hover {
-    box-shadow: 0 15px 25px rgba(219, 39, 119, 0.4);
-    transform: translateY(-3px);
-}
+        button.submit-btn:hover { background-color: #5a191e; }
+
+        button.urgent-btn {
+            background-color: transparent;
+            color: var(--brand-maroon);
+            border: 1px solid var(--brand-maroon);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500; font-size: 0.9rem; padding: 1rem; cursor: pointer;
+            flex: 1; transition: all 0.3s ease;
+        }
+
+        button.urgent-btn:hover {
+            background-color: var(--brand-maroon); color: var(--bg-cream);
+        }
+
+        /* --- URGENT CONTACT DETAILS (HIDDEN INITIALLY) --- */
+        .urgent-details {
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--brand-maroon);
+        }
+
+        .urgent-details p { margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-dark); }
+        .urgent-details a { color: var(--brand-maroon); text-decoration: none; font-weight: 600; }
+        .urgent-details a:hover { text-decoration: underline; }
+        .social-links { margin-top: 0.5rem; font-size: 0.85rem; }
+        .social-links a { margin-right: 15px; color: #666; font-weight: 500; }
+
+        /* Success Message */
+        .success-message { display: none; text-align: center; }
+        .success-message h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--brand-maroon); margin-bottom: 1rem; }
+
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .brand-panel, .form-panel { padding: 2.5rem; }
+            .button-group { flex-direction: column; }
+        }
+    
