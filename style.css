@@ -1,0 +1,174 @@
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a; /* Dark sleek background */
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- Animated Background Shapes --- */
+.background-animation {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.shape {
+    position: absolute;
+    filter: blur(80px);
+    border-radius: 50%;
+    animation: float 10s infinite alternate ease-in-out;
+}
+
+.shape1 {
+    width: 300px;
+    height: 300px;
+    background: #4f46e5; /* Indigo */
+    top: -5%;
+    left: 15%;
+}
+
+.shape2 {
+    width: 400px;
+    height: 400px;
+    background: #db2777; /* Pink */
+    bottom: -10%;
+    right: 5%;
+    animation-delay: -3s;
+}
+
+.shape3 {
+    width: 250px;
+    height: 250px;
+    background: #06b6d4; /* Cyan */
+    top: 40%;
+    left: 50%;
+    animation-delay: -6s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-40px) scale(1.1); }
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+    animation: fadeUp 1s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Mascot Animation --- */
+.mascot-container {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+    animation: bounceFloat 4s infinite ease-in-out;
+}
+
+.mascot {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+@keyframes bounceFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* --- Typography --- */
+.name {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.title {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* --- Buttons --- */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* The Glass Effect Button */
+.glass-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* The Main Gradient Action Button */
+.primary-btn {
+    background: linear-gradient(135deg, #4f46e5, #db2777);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 10px 20px rgba(219, 39, 119, 0.25);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 15px 25px rgba(219, 39, 119, 0.4);
+    transform: translateY(-3px);
+}
