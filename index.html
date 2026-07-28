@@ -7,7 +7,6 @@
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
 </head>
 <body>
 
@@ -27,9 +26,9 @@
         <div class="form-panel">
             <form id="contactForm">
                 <h2>Start a Project</h2>
-                <p>Fill out the details below and our studio will reach out within 24 hours.</p>
+                <p class="mb-5">Fill out the details below and our studio will reach out within 24 hours.</p>
 
-                <!-- WEB3FORMS ACCESS KEY (See instructions below) -->
+                <!-- WEB3FORMS ACCESS KEY -->
                 <input type="hidden" name="access_key" value="4c774272-35d9-4c42-a26b-88f2509d0819">
 
                 <div class="input-group">
@@ -42,7 +41,35 @@
                     <label for="email">Email Address</label>
                 </div>
 
-                <div class="input-group" style="margin-bottom: 3rem;">
+                <!-- BUSINESS TYPE FIELD -->
+                <div class="input-group">
+                    <select name="business_type" id="business_type" style="color: #999;" onchange="this.style.color='var(--text-dark)'" required>
+                        <option value="" disabled selected>Select Your Business Type</option>
+                        <optgroup label="Local & Regional (Punjab / India)">
+                            <option value="Rice Mill / Agriculture">Rice Mill / Agriculture & Farming</option>
+                            <option value="Cloth Store / Boutique">Cloth Store / Textile Boutique</option>
+                            <option value="Pesticide / Fertilizer Store">Pesticide & Seed Store</option>
+                            <option value="Hardware / Sanitary Store">Hardware & Building Materials</option>
+                            <option value="IELTS / Immigration Consultant">IELTS & Immigration Consultancy</option>
+                            <option value="Jewelry Store">Jewelry Showroom</option>
+                        </optgroup>
+                        <optgroup label="General Small & Medium Business">
+                            <option value="Retail / E-Commerce Shop">Retail / General Store</option>
+                            <option value="Restaurant / Cafe / Bakery">Restaurant / Cafe / Bakery</option>
+                            <option value="Real Estate / Builder">Real Estate Agency / Builder</option>
+                            <option value="Clinic / Healthcare / Doctor">Clinic / Healthcare / Pharmacy</option>
+                            <option value="Fitness / Gym / Yoga Studio">Fitness Center / Gym</option>
+                            <option value="Hotel / Resort / Travel">Hotel / Resort / Tour & Travel</option>
+                            <option value="Lawyer / CA / Financial Services">Legal / CA / Financial Advisory</option>
+                            <option value="Education / School / Coaching">School / Coaching Institute</option>
+                            <option value="IT Services / Agency">Tech / Software Startup / Agency</option>
+                        </optgroup>
+                        <option value="Other Business">Other Business Type</option>
+                    </select>
+                </div>
+
+                <!-- SERVICE SELECTION -->
+                <div class="input-group">
                     <select name="service" id="service" style="color: #999;" onchange="this.style.color='var(--text-dark)'" required>
                         <option value="" disabled selected>Select a Service</option>
                         <option value="Web Development">Custom Web Development</option>
@@ -50,6 +77,18 @@
                         <option value="Digital Marketing">Digital Marketing (SEO/PPC)</option>
                         <option value="UI/UX Design">UX/UI & Brand Identity</option>
                         <option value="not listed">Others</option>
+                    </select>
+                </div>
+
+                <!-- BUDGET RANGE SELECTION -->
+                <div class="input-group" style="margin-bottom: 3rem;">
+                    <select name="budget" id="budget" style="color: #999;" onchange="this.style.color='var(--text-dark)'" required>
+                        <option value="" disabled selected>Select Your Budget Range</option>
+                        <option value="₹7,999 - ₹15,000">₹7,999 - ₹15,000 (Starter Website)</option>
+                        <option value="₹15,000 - ₹35,000">₹15,000 - ₹35,000 (Standard Business / E-Commerce)</option>
+                        <option value="₹35,000 - ₹75,000">₹35,000 - ₹75,000 (Advanced Web App / Portal)</option>
+                        <option value="₹75,000 - ₹1,50,000">₹75,000 - ₹1,50,000 (Enterprise System)</option>
+                        <option value="₹1,50,000 - ₹2,50,000+">₹1,50,000 - ₹2,50,000+ (Custom Scalable Solution)</option>
                     </select>
                 </div>
 
@@ -66,7 +105,7 @@
                 <!-- Urgent Contact Details Reveal -->
                 <div class="urgent-details" id="urgentDetails">
                     <p><strong>Call / WhatsApp:</strong> <a href="tel:+916239909804">+91 6239909804</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:info@thesitecraftstudio.com">thesitecraftstudio@gmail.com</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:thesitecraftstudio@gmail.com">thesitecraftstudio@gmail.com</a></p>
                     <div class="social-links">
                         <a href="#" target="_blank">LinkedIn</a>
                         <a href="#" target="_blank">Instagram</a>
@@ -115,19 +154,16 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault(); 
             
-            // Change button text while sending
             submitBtn.innerText = "Sending...";
             
             const formData = new FormData(form);
 
-            // Send data to Web3Forms
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 body: formData
             })
             .then(async (response) => {
                 if (response.status == 200) {
-                    // Success! Animate form out and show success message
                     gsap.to(form, {
                         opacity: 0, y: -20, duration: 0.4,
                         onComplete: () => {
