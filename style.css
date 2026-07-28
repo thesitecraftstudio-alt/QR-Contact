@@ -1,158 +1,348 @@
+ :root {
 
-
-        :root {
             --bg-cream: #F4F0EA;
+
             --brand-maroon: #722227;
+
             --text-dark: #404040;
+
             --border-light: #D1C8B8;
+
         }
+
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+
         body {
+
             font-family: 'Montserrat', sans-serif;
+
             background-color: var(--bg-cream);
+
             color: var(--text-dark);
+
             min-height: 100vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             overflow-x: hidden;
+
             padding: 2rem;
+
         }
+
+
 
         .container {
+
             display: flex;
+
             width: 100%;
+
             max-width: 1200px;
+
             min-height: 80vh;
+
             background: #ffffff;
+
             box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+
             border-radius: 4px; 
+
             overflow: hidden;
+
             opacity: 0; 
+
         }
 
+
+
         /* --- LEFT PANEL --- */
+
         .brand-panel {
+
             flex: 1;
+
             background-color: var(--brand-maroon);
+
             color: var(--bg-cream);
+
             padding: 4rem;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
+
         }
+
+
 
         .logo-wrapper svg { width: 60px; height: 60px; fill: var(--bg-cream); }
 
+
+
         .brand-panel h1 {
+
             font-family: 'Cormorant Garamond', serif;
+
             font-size: 3.5rem;
+
             line-height: 1.1;
+
             margin-bottom: 1rem;
+
             font-weight: 600;
+
         }
+
+
 
         .brand-panel p {
+
             font-size: 1rem; line-height: 1.6; opacity: 0.9; font-weight: 300; max-width: 80%;
+
         }
+
+
 
         /* --- RIGHT PANEL --- */
+
         .form-panel {
+
             flex: 1;
+
             padding: 4rem;
+
             background-color: var(--bg-cream);
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
+
         }
 
+
+
         .form-panel h2 {
+
             font-family: 'Cormorant Garamond', serif;
+
             font-size: 2.5rem;
+
             color: var(--brand-maroon);
+
             margin-bottom: 0.5rem;
+
         }
+
+
 
         .form-panel > p { font-size: 0.9rem; margin-bottom: 2.5rem; color: #666; }
 
+
+
         .input-group { position: relative; margin-bottom: 2rem; }
 
+
+
         .input-group input, .input-group select, .input-group textarea {
+
             width: 100%; padding: 10px 0; font-size: 1rem; font-family: 'Montserrat', sans-serif;
+
             color: var(--text-dark); border: none; border-bottom: 1px solid var(--border-light);
+
             background: transparent; outline: none; transition: border-color 0.3s ease;
+
         }
+
+
 
         .input-group textarea { resize: none; height: 80px; }
 
+
+
         .input-group label {
+
             position: absolute; top: 10px; left: 0; font-size: 1rem; color: #999;
+
             pointer-events: none; transition: 0.3s ease all;
+
         }
+
+
 
         .input-group input:focus, .input-group textarea:focus { border-bottom: 2px solid var(--brand-maroon); }
 
+
+
         .input-group input:focus ~ label, .input-group input:valid ~ label,
+
         .input-group textarea:focus ~ label, .input-group textarea:valid ~ label {
+
             top: -15px; font-size: 0.75rem; color: var(--brand-maroon); font-weight: 600;
+
         }
+
+
 
         /* --- BUTTONS --- */
+
         .button-group {
+
             display: flex;
+
             gap: 1rem;
+
             margin-top: 1rem;
+
         }
 
+        /* Ensure all input-group elements have consistent breathing room */
+.input-group { 
+    position: relative; 
+    margin-bottom: 2rem; 
+}
+
+/* Give the final select dropdown before the textarea a bit more breathing room */
+.input-group:has(#budget) {
+    margin-bottom: 3rem;
+}
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    width: 100%; 
+    padding: 10px 0; 
+    font-size: 1rem; 
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark); 
+    border: none; 
+    border-bottom: 1px solid var(--border-light);
+    background: transparent; 
+    outline: none; 
+    transition: border-color 0.3s ease;
+}
+.mb-5{
+margin-bottom: 15px;
+}
+
+/* Style the option groups inside your business type dropdown for a cleaner look */
+optgroup {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--brand-maroon);
+}
+
+option {
+    color: var(--text-dark);
+    font-weight: 400;
+}
+
+
         button.submit-btn {
+
             background-color: var(--brand-maroon);
+
             color: var(--bg-cream);
+
             font-family: 'Montserrat', sans-serif;
+
             font-weight: 500; font-size: 1rem; padding: 1rem 2rem; border: none;
+
             cursor: pointer; flex: 2; transition: background-color 0.3s ease;
+
             text-transform: uppercase; letter-spacing: 1px;
+
         }
+
+
 
         button.submit-btn:hover { background-color: #5a191e; }
 
+
+
         button.urgent-btn {
+
             background-color: transparent;
+
             color: var(--brand-maroon);
+
             border: 1px solid var(--brand-maroon);
+
             font-family: 'Montserrat', sans-serif;
+
             font-weight: 500; font-size: 0.9rem; padding: 1rem; cursor: pointer;
+
             flex: 1; transition: all 0.3s ease;
+
         }
+
+
 
         button.urgent-btn:hover {
+
             background-color: var(--brand-maroon); color: var(--bg-cream);
+
         }
+
+
 
         /* --- URGENT CONTACT DETAILS (HIDDEN INITIALLY) --- */
+
         .urgent-details {
+
             height: 0;
+
             overflow: hidden;
+
             opacity: 0;
+
             margin-top: 1.5rem;
+
             padding-left: 1rem;
+
             border-left: 2px solid var(--brand-maroon);
+
         }
+
+
 
         .urgent-details p { margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-dark); }
+
         .urgent-details a { color: var(--brand-maroon); text-decoration: none; font-weight: 600; }
+
         .urgent-details a:hover { text-decoration: underline; }
+
         .social-links { margin-top: 0.5rem; font-size: 0.85rem; }
+
         .social-links a { margin-right: 15px; color: #666; font-weight: 500; }
 
+
+
         /* Success Message */
+
         .success-message { display: none; text-align: center; }
+
         .success-message h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--brand-maroon); margin-bottom: 1rem; }
 
+
+
         @media (max-width: 900px) {
+
             .container { flex-direction: column; }
+
             .brand-panel, .form-panel { padding: 2.5rem; }
+
             .button-group { flex-direction: column; }
+
         }
-    
